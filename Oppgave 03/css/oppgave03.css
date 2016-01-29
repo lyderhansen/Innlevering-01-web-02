@@ -1,14 +1,40 @@
+img {
+  max-width: 100%;
+}
+
 #container {
-  width: 1060px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 1000px;
+  display: block;
+  margin:  auto;
+  padding-bottom: 40px;
+  height: 1500px;
 }
 
 .landListeOutput {
-  margin: 15px;
   float: left;
-  width: 500px;
+  max-width: 50%;
+  display: block;
   text-align: left;
   font-family: sans-serif;
   font-weight: bold;
+  margin: 0px;
+}
+
+.landListeOutput img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.landListeOutput p {
+  margin: 0px;
+}
+
+#footer p{
+  height: 50px;
+  margin-top: 50px;
+}
+
+@media (max-width: 1040px) {
+  .landListeOutput {
+    max-width: 100%;
+  }
 }

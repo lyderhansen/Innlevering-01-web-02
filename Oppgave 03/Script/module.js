@@ -1,4 +1,4 @@
-var APP = (function () {
+var LANDLISTEMODULE = (function () {
 
 var json = {
   "landListeJSON": [{
@@ -64,7 +64,7 @@ var searchAllLand = $("#searchLandBtn").click(function() {
   var result = "";
   $.each(json.landListeJSON, function(i, v) {
     if (v.land == inputTxt) {
-      result += '<section class="landListeOutput">' + '<img src= "' + v.images + '" alt ="' + v.name + '">' + v.land + '<br>' + v.by + '</section>';
+      result += '<section class="landListeOutput">' + '<img src= "' + v.images + '" alt ="' + v .name + '">' + v.land + '<br>' + v.by + '</section>';
     }
 
   });
@@ -76,10 +76,8 @@ var searchAllLand = $("#searchLandBtn").click(function() {
 var searchAllLand = function() {
   var output = ""; // initialize it outside the loop
   $.each(json.landListeJSON, function() {
-    output += '<section class="landListeOutput">' + '<img src= "' + this.images + '" alt ="' + this.name + '">' + this.land + '<br>' + this.by + '</section>';
+    output += '<section class="landListeOutput">' + '<img src= "' + this.images + '" alt ="' + this.name + '">'+ '<p>'  + this.land + '<br>' + this.by + '</p>' + '</section>';
   });
-
-
   $('.landOutput').html(output);
 };
 

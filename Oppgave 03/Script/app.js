@@ -1,10 +1,11 @@
 (function() {
+
   $("#searchLandBtn").click(function() {
-    APP.searchLand();
+    LANDLISTEMODULE.searchLand();
   });
 
   $("#searchAllBtn").click(function() {
-    APP.searchAllLand();
+    LANDLISTEMODULE.searchAllLand();
   });
 
 })();

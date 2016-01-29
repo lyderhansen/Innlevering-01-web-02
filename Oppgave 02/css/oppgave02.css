@@ -1,0 +1,32 @@
+body{
+  margin: 0;
+}
+
+#container{
+
+  height: 1500px;
+}
+
+#slideshowContainer{
+    width: 500px;
+    height: 300px;
+    margin: auto;
+    position: relative;
+    background-color: white;
+}
+#slideshow{
+    position: relative;
+    width: 500px;
+    height: 300px;
+}
+#container img{
+    position: absolute;
+}
+#forrigeBildeBtn{
+    top: 130px;
+    left: -25px;
+}
+#nesteBildeBtn{
+    top: 130px;
+    right: -25px;
+}
