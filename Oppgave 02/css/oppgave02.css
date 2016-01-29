@@ -1,32 +1,42 @@
-body{
+body {
   margin: 0;
+  background-color: rgb(227, 210, 24);
 }
+#container {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: sans-serif;
+}
+#header {
+  margin: 0px;
+text-align: center;
 
-#container{
-
-  height: 1500px;
 }
-
-#slideshowContainer{
-    width: 500px;
-    height: 300px;
-    margin: auto;
-    position: relative;
-    background-color: white;
+#slideshowContainer {
+  width: 500px;
+  height: 300px;
+  margin: auto;
+  position: relative;
+  background-color: white;
 }
-#slideshow{
-    position: relative;
-    width: 500px;
-    height: 300px;
+#slideshow {
+  position: relative;
+  width: 500px;
+  height: 300px;
 }
-#container img{
-    position: absolute;
+#container img {
+  position: absolute;
 }
-#forrigeBildeBtn{
-    top: 130px;
-    left: -25px;
+#forrigeBildeBtn {
+  top: 130px;
+  left: -25px;
 }
-#nesteBildeBtn{
-    top: 130px;
-    right: -25px;
+#nesteBildeBtn {
+  top: 130px;
+  right: -25px;
+}
+#slideshow img {
+  height: 300px;
+  width: 500px;
 }

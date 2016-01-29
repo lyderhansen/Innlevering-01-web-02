@@ -1,4 +1,15 @@
 //APP pattern (Object literal)
+
+/*
+1:click
+2:attribut
+3:css
+4:animate
+5:append
+6:prevAll
+7:remove
+
+*/
 var SLIDESHOWAPP = {
 
     //variabler
@@ -75,11 +86,17 @@ var SLIDESHOWAPP = {
 
         SLIDESHOWAPP.$slideshow.append($newImage);
 
-    }//--end showImage
+        WEBPAGEIMAGESMODULE.marsvinInfo();
+} //--end showImage
 
-};//--end SLIDESHOWAPP
+
+
+
+}; //--end SLIDESHOWAPP
+
+
 
 //document.ready trigger vår SLIDESHOWAPP når DOM er klart
-$(function(){
-    SLIDESHOWAPP.init();
+$(function() {
+  SLIDESHOWAPP.init();
 });
