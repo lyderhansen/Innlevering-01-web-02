@@ -8,93 +8,121 @@
 5:append
 6:prevAll
 7:remove
+8:html
+
 
 */
 var SLIDESHOWAPP = {
 
-    //variabler
-    imageIndex: 0,
-    filstiBilder: "slidebilder/",
+  //variabler
+  imageIndex: 0,
+  filstiBilder: "slidebilder/",
 
-    //HTML-objekter
-    $slideshow: null,
-    $forrigeBildeBtn: null,
-    $nesteBildeBtn: null,
+  //HTML-objekter
+  $slideshow: null,
+  $forrigeBildeBtn: null,
+  $nesteBildeBtn: null,
+  $infoPopup: null,
 
-    //init-funksjoner
-    init: function(){
+  //init-funksjoner
+  init: function() {
 
-        var SA = SLIDESHOWAPP;
+    var SA = SLIDESHOWAPP;
 
-        var setElements = function(){
-            SA.$slideshow = $("#slideshow");
-            SA.$forrigeBildeBtn = $("#forrigeBildeBtn");
-            SA.$nesteBildeBtn = $("#nesteBildeBtn");
-        }();
+    var setElements = function() {
+      SA.$slideshow = $("#slideshow");
+      SA.$infoPopup = $("#infoPopup");
+      SA.$forrigeBildeBtn = $("#forrigeBildeBtn");
+      SA.$nesteBildeBtn = $("#nesteBildeBtn");
+    }();
 
-        var setEvents = function(){
-            SA.$forrigeBildeBtn.click(SA.showPreviousImage);
-            SA.$nesteBildeBtn.click(SA.showNextImage);
-        }();
+    var setEvents = function() {
+      SA.$forrigeBildeBtn.click(SA.showPreviousImage);
+      SA.$nesteBildeBtn.click(SA.showNextImage);
+      SA.$slideshow.click(SA.showImageInfo);
 
-        var setPage = function(){
-            SA.showImage();
-        }();
+    }();
 
-    }, //--end init
+    var setPage = function() {
+      SA.showImage();
+    }();
 
-    //app-logikk og støttefunksjoner
-    showPreviousImage: function(){
+  }, //--end init
 
-        var SA = SLIDESHOWAPP;
+  //app-logikk og støttefunksjoner
+  showPreviousImage: function() {
 
-        if(SA.imageIndex > 0 ){
-            SA.imageIndex--;
-        }else{
-            SA.imageIndex = WEBPAGEIMAGESMODULE.getNumberOfImages() - 1;
-        }
+    var SA = SLIDESHOWAPP;
 
-        SA.showImage("-500px");
-    }, //--end showPreviousImage
+    if (SA.imageIndex > 0) {
+      SA.imageIndex--;
+    } else {
+      SA.imageIndex = WEBPAGEIMAGESMODULE.getNumberOfImages() - 1;
+    }
 
-    showNextImage: function(){
+    SA.showImage("-500px");
+  }, //--end showPreviousImage
 
-        var SA = SLIDESHOWAPP;
+  showNextImage: function() {
 
-        if(SA.imageIndex < ( WEBPAGEIMAGESMODULE.getNumberOfImages() - 1 ) ){
-            SA.imageIndex++;
-        }else{
-            SA.imageIndex = 0;
-        }
+    var SA = SLIDESHOWAPP;
 
-        SA.showImage("500px");
-    }, //--end showNextImage
+    if (SA.imageIndex < (WEBPAGEIMAGESMODULE.getNumberOfImages() - 1)) {
+      SA.imageIndex++;
+    } else {
+      SA.imageIndex = 0;
+    }
 
-    showImage: function(startPosition){
+    SA.showImage("500px");
+  }, //--end showNextImage
 
-        var index = SLIDESHOWAPP.imageIndex;
-        var filsti = SLIDESHOWAPP.filstiBilder;
+  showImage: function(startPosition) {
 
-        var bildeSrc = WEBPAGEIMAGESMODULE.getImageSrc(index);
+      var index = SLIDESHOWAPP.imageIndex;
+      var filsti = SLIDESHOWAPP.filstiBilder;
 
-        var $newImage = $("<img>")
-            .attr("src", filsti + bildeSrc)
-            .css({"left": startPosition, "opacity": "0"})
-            .animate({"left": "0px", "opacity": "1"}, 750, function(){
-                $(this).prevAll("img").remove();
-            });
+      var bildeSrc = WEBPAGEIMAGESMODULE.getImageSrc(index);
 
-        SLIDESHOWAPP.$slideshow.append($newImage);
+      var $newImage = $("<img>")
+        .attr("src", filsti + bildeSrc)
+        .css({
+          "left": startPosition,
+          "opacity": "0"
+        })
+        .animate({
+          "left": "0px",
+          "opacity": "1"
+        }, 750, function() {
+          $(this).prevAll("img").remove();
+        });
 
-        WEBPAGEIMAGESMODULE.marsvinInfo();
-} //--end showImage
 
 
+      SLIDESHOWAPP.$slideshow.append($newImage);
+
+      SLIDESHOWAPP.$infoPopup.html("");
+
+
+
+    }, //--end showImage
+
+    showImageInfo: function() {
+    var index = SLIDESHOWAPP.imageIndex;
+    var bildeInfo = WEBPAGEIMAGESMODULE.getImageInfo(index);
+
+    var $imageInfo = $('<p id="popupText">').html(bildeInfo)
+    .css({
+      "opacity": "0"
+    })
+    .animate({
+      "opacity": "1"
+    }, 100);
+    SLIDESHOWAPP.$infoPopup.html($imageInfo);
+
+  }
 
 
 }; //--end SLIDESHOWAPP
-
-
 
 //document.ready trigger vår SLIDESHOWAPP når DOM er klart
 $(function() {

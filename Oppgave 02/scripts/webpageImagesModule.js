@@ -1,57 +1,61 @@
 //Modul som inneholder alle bilder av nettsteder
-var WEBPAGEIMAGESMODULE = (function(){
+var WEBPAGEIMAGESMODULE = (function() {
 
-    //JSON-objekt-liste
-    var webpageListJSON = {"webpageList":[
-        {"title": "marsvin", "bildeSrc": "marsvin1.jpg"},
-        {"title": "marsin2", "bildeSrc": "marsvin2.jpg"},
-        {"title": "marsvin3", "bildeSrc": "marsvin3.jpg"},
-        {"title": "marsvin4", "bildeSrc": "marsvin4.jpg"},
-        {"title": "marsvin5", "bildeSrc": "marsvin5.jpg"},
-        {"title": "marsvin6", "bildeSrc": "marsvin6.jpg"},
-        {"title": "marsvin7", "bildeSrc": "marsvin7.jpg"},
-        {"title": "marsvin8", "bildeSrc": "marsvin8.jpg"}
-    ]};
+  //JSON-objekt-liste
+  var webpageListJSON = {
+    "webpageList": [{
+      "title": "marsvin",
+      "info": "Dette er Fredrik og Frank de er bestevenner. De møttes i barnehagen og har vært venner siden den gang",
+      "bildeSrc": "marsvin1.jpg"
+    }, {
+      "title": "marsin2",
+      "info": "Her har vi Rikke. Hun er den søteste du kan tenke deg. Hun liker blomster og blomkål.",
+      "bildeSrc": "marsvin2.jpg"
+    }, {
+      "title": "marsvin3",
+      "info": "Dette er Roberto. Med sin slanke lange kropp så får han plass i hvilket som helst hamster hjul.",
+      "bildeSrc": "marsvin3.jpg"
+    }, {
+      "title": "marsvin4",
+      "info": "Dette er trillingene Knask. De er alltid klar for litt fest og morro. ",
+      "bildeSrc": "marsvin4.jpg"
+    }, {
+      "title": "marsvin5",
+      "info": "Her har vi André. Han er en dreven basket spiller og sier at det kommer fra kostholdet hans.",
+      "bildeSrc": "marsvin5.jpg"
+    }, {
+      "title": "marsvin6",
+      "info": "Stripa, eller kalt Zebra. Hun liker fjellturer og er en mester på friklattring.",
+      "bildeSrc": "marsvin6.jpg"
+    }, {
+      "title": "marsvin7",
+      "info": "Ronny, er den store sportsidioten sammen med Roberto. Han sier også at alt kommer fra kostholdet.",
+      "bildeSrc": "marsvin7.jpg"
+    }, {
+      "title": "marsvin8",
+      "info": "Så til slutt så har vi Frikke, hune er den blideste marsvinet du kan tenke deg. Hun elsker ballonger og konfetti.",
+      "bildeSrc": "marsvin8.jpg"
+    }]
+  };
 
-    var getImageSrc = function(imageIndex){
-        return webpageListJSON.webpageList[imageIndex].bildeSrc;
-    };
+  var getImageSrc = function(imageIndex) {
+    return webpageListJSON.webpageList[imageIndex].bildeSrc;
+  };
 
-    var getNumberOfImages = function(){
-        return webpageListJSON.webpageList.length;
-    };
-//.-----------
+  var getNumberOfImages = function() {
+    return webpageListJSON.webpageList.length;
+  };
 
-var marsvinInfo = function() {
-  var vistMarsvin = "";
-  var bildeTxt ="";
-
-  $("#slideshow").on("click", function() {
-        vistMarsvin = $(this).children().attr("src");
-
-        for (i = 0; i < 8; i++) {
-          if (vistMarsvin == webpageListJSON.webpageList[i].bildeSrc) {
-            bildeTxt = webpageListJSON.webpageList.title;
+  var getImageInfo = function(imageIndex) {
+    return webpageListJSON.webpageList[imageIndex].info;
+  };
 
 
-          }
-          alert(bildeTxt)
-        }
+  return {
+    getImageSrc: getImageSrc,
+    getNumberOfImages: getNumberOfImages,
+    getImageInfo: getImageInfo,
 
+  };
 
-});
-
-}
-
-
-
-
-    //-----------------
-
-    return {
-        getImageSrc: getImageSrc,
-        getNumberOfImages: getNumberOfImages,
-        marsvinInfo: marsvinInfo
-    };
-
-}());//--end WEBPAGEIMAGESMODULE
+}()); //--end WEBPAGEIMAGESMODULE

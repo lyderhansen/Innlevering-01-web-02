@@ -1,38 +1,3 @@
-//module pattern - den koden som en del andre utviklere ønsker å bruke
-
-var HTMLGENERATOR = (function() {
-
-  var hentElementArray = function(tag, antall) {
-      var elementArray = [];
-
-      for (var i = 0; i < antall; i++) {
-        var $newElement = $("<" + tag + ">")
-          .text(i + 1)
-          .css({
-            "width": "50px",
-            "height": "50px",
-            "background-color": "rgb(0, 0, 0)",
-            "color": "rgb(255, 245, 0)",
-            "border-radius": "5px",
-            "float": "left",
-            "margin": "2px",
-            "text-align": "center",
-            "opacity": "0.5",
-
-          })
-        elementArray.push($newElement);
-      }
-      return elementArray;
-    }
-    // attributtet er et valgfritt navn: verdien er navn på funksjon som skal være tilgjengelig
-  return {
-    hentElementArray: hentElementArray
-
-  }
-
-}());
-// -- end HTMLGENERATOR
-
 //APP/module pattern - blanding av kode som du ønsker
 //å dele samtidig som du ønsker å beskytte mest mulig
 
@@ -52,26 +17,29 @@ var MANGEDIV_APP = {
 
       var setEvents = function() {
         $("#submitBtn").click(function() {
+          // get input from user
           var antallDivs = $("#inputDivAmount").val();
+          // puts inn type of element and amoutn from user
           MANGEDIV_APP.divArray = HTMLGENERATOR.hentElementArray("div", antallDivs);
-          MANGEDIV_APP.$mangeDivSection.append(MANGEDIV_APP.divArray);
-
+          // creates the divs
+          MANGEDIV_APP.$mangeDivSection.html(MANGEDIV_APP.divArray);
+          // styles the divs and sets click and dbclick functions
           $("div").hover(function() {
                 $(this).css("opacity", "1");
-              },
+              }, // start hover opacity
               function() {
                 $(this).css("opacity", "0.5");
               }) // -- end hover opacity function
-
+            // adds colors to div clicked and the next and previus div
             .click(function() {
               $(this)
                 .add($(this).next())
                 .add($(this).prev())
-                .css("background-color", "red")
+                .css("background-color", "rgb(246, 0, 111)")
             }) // -- end click
-
+            // adds colors to div doubleclicked and the all the divs
             .dblclick(function() {
-              $(this).siblings().css("background-color", "blue");
+              $(this).siblings().css("background-color", "rgb(42, 218, 236)");
             }); // -- end dblclick
 
         }); // -- end submit click function
@@ -82,4 +50,4 @@ var MANGEDIV_APP = {
 
 }; // end MANGEDIV_APP
 
-MANGEDIV_APP.init();
+MANGEDIV_APP.init(); // run init function

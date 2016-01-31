@@ -1,24 +1,25 @@
 body {
   margin: 0;
-  background-color: rgb(227, 210, 24);
+  background-color: rgb(236, 236, 236);
 }
 #container {
   width: 500px;
   margin-left: auto;
   margin-right: auto;
   font-family: sans-serif;
+  border: 1px solid;
+  height: 560px;
+  box-shadow: 20px 10px 30px #626262;
 }
 #header {
   margin: 0px;
-text-align: center;
-
+  text-align: center;
 }
 #slideshowContainer {
   width: 500px;
   height: 300px;
   margin: auto;
   position: relative;
-  background-color: white;
 }
 #slideshow {
   position: relative;
@@ -27,16 +28,44 @@ text-align: center;
 }
 #container img {
   position: absolute;
+  cursor: pointer;
 }
 #forrigeBildeBtn {
   top: 130px;
   left: -25px;
+  -webkit-filter: drop-shadow(2px 2px 20px black);
 }
 #nesteBildeBtn {
   top: 130px;
   right: -25px;
+  -webkit-filter: drop-shadow(2px 2px 20px black);
 }
 #slideshow img {
   height: 300px;
   width: 500px;
+}
+#infoContainer {
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+#infoPopup {
+  width: 450px;
+  height: 100px;
+  background-color: rgb(198, 197, 197);
+  box-shadow: 20px 10px 30px #626262;
+  margin-top: 5px;
+  border: 3px solid;
+  border-radius: 10px;
+}
+
+#infoPopup p {
+  margin: 10px;
+  position: relative;
+  top: 10px;
+  font-size: 18px;
+}
+h3 {
+  margin: 10px 0px 10px 0px;
 }

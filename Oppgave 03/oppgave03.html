@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/jquery-ui.min.css" media="screen" title="no title" charset="utf-8">
@@ -10,12 +8,13 @@
 
 <body>
   <div id="container">
-    <h3>Mitt Ferie Sted</h3>
+
     <section id="searchSection">
+      <h1 id="headTxt">Mitt Ferie Sted</h3>
       <label>Land:</label>
       <input id="searchDataTxt" type="text" name="name" placeholder="Søk etter land">
-      <input id="searchLandBtn" type="button" value="Søk etter land">
-      <input id="searchAllBtn"  type="button" value="Velg alle destinasjoner">
+      <input id="searchLandBtn" class="btn" type="button" value="Søk etter land">
+      <input id="searchAllBtn"  class="btn" type="button" value="Velg alle destinasjoner">
       <hr>
 
       <section class="landOutput"></section>
@@ -28,5 +27,3 @@
   <script src="Script/module.js" charset="utf-8"></script>
   <script src="Script/app.js" charset="utf-8"></script>
 </body>
-
-</html>
