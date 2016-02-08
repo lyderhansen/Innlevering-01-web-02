@@ -1,3 +1,4 @@
+// Jørn Lyder hansen Innlevering 01 Oppgave 01
 //APP/module pattern - blanding av kode som du ønsker
 //å dele samtidig som du ønsker å beskytte mest mulig
 

@@ -1,3 +1,4 @@
+// Jørn Lyder hansen Innlevering 01 Oppgave 02
 //Modul som inneholder alle bilder av nettsteder
 var WEBPAGEIMAGESMODULE = (function() {
 
@@ -33,29 +34,28 @@ var WEBPAGEIMAGESMODULE = (function() {
       "bildeSrc": "marsvin7.jpg"
     }, {
       "title": "marsvin8",
-      "info": "Så til slutt så har vi Frikke, hune er den blideste marsvinet du kan tenke deg. Hun elsker ballonger og konfetti.",
+      "info": "Så til slutt så har vi Frikke, hun er det blideste marsvinet du kan tenke deg. Hun elsker ballonger og konfetti.",
       "bildeSrc": "marsvin8.jpg"
     }]
   };
-
+  // function for getting image SRC from JSON
   var getImageSrc = function(imageIndex) {
     return webpageListJSON.webpageList[imageIndex].bildeSrc;
   };
-
+  // function for getting "length" of the JSON
   var getNumberOfImages = function() {
     return webpageListJSON.webpageList.length;
   };
-
+  // function for getting "info" from JSON
   var getImageInfo = function(imageIndex) {
     return webpageListJSON.webpageList[imageIndex].info;
   };
 
-
+  // returnerer funksjonene så de kan bli brukt i app
   return {
     getImageSrc: getImageSrc,
     getNumberOfImages: getNumberOfImages,
     getImageInfo: getImageInfo,
-
   };
 
 }()); //--end WEBPAGEIMAGESMODULE

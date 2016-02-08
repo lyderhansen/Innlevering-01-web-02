@@ -1,10 +1,11 @@
+// Jørn Lyder hansen Innlevering 01 Oppgave 01
 //module pattern
 
 var HTMLGENERATOR = (function() {
 
   var hentElementArray = function(tag, antall) {
       var elementArray = [];
-
+      // creates CSS values of the divs when they ar generated
       for (var i = 0; i < antall; i++) {
         var $newElement = $("<" + tag + ">")
           .text(i + 1)
@@ -21,11 +22,13 @@ var HTMLGENERATOR = (function() {
             "cursor": "pointer"
 
           })
+          // generates new elements ("div")
         elementArray.push($newElement);
       }
+      // returns the element array
       return elementArray;
     }
-    // attributtet er et valgfritt navn: verdien er navn på funksjon som skal være tilgjengelig
+    // returns the function that generate x
   return {
     hentElementArray: hentElementArray
   }

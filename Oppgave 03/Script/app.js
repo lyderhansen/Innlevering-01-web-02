@@ -1,3 +1,4 @@
+// Jørn Lyder hansen Innlevering 01 Oppgave 03
 (function() {
 
   var FERIESTEDERAPP = {

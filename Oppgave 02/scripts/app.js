@@ -1,3 +1,4 @@
+// Jørn Lyder hansen Innlevering 01 Oppgave 02
 //APP pattern (Object literal)
 
 /*
@@ -9,9 +10,8 @@
 6:prevAll
 7:remove
 8:html
-
-
 */
+
 var SLIDESHOWAPP = {
 
   //variabler
@@ -27,24 +27,23 @@ var SLIDESHOWAPP = {
   //init-funksjoner
   init: function() {
 
-    var SA = SLIDESHOWAPP;
+    var SAPP = SLIDESHOWAPP;
 
     var setElements = function() {
-      SA.$slideshow = $("#slideshow");
-      SA.$infoPopup = $("#infoPopup");
-      SA.$forrigeBildeBtn = $("#forrigeBildeBtn");
-      SA.$nesteBildeBtn = $("#nesteBildeBtn");
+      SAPP.$slideshow = $("#slideshow");
+      SAPP.$infoPopup = $("#infoPopup");
+      SAPP.$forrigeBildeBtn = $("#forrigeBildeBtn");
+      SAPP.$nesteBildeBtn = $("#nesteBildeBtn");
     }();
 
     var setEvents = function() {
-      SA.$forrigeBildeBtn.click(SA.showPreviousImage);
-      SA.$nesteBildeBtn.click(SA.showNextImage);
-      SA.$slideshow.click(SA.showImageInfo);
-
+      SAPP.$forrigeBildeBtn.click(SAPP.showPreviousImage);
+      SAPP.$nesteBildeBtn.click(SAPP.showNextImage);
+      SAPP.$slideshow.click(SAPP.showImageInfo);
     }();
 
     var setPage = function() {
-      SA.showImage();
+      SAPP.showImage();
     }();
 
   }, //--end init
@@ -52,79 +51,74 @@ var SLIDESHOWAPP = {
   //app-logikk og støttefunksjoner
   showPreviousImage: function() {
 
-    var SA = SLIDESHOWAPP;
+    var SAPP = SLIDESHOWAPP;
 
-    if (SA.imageIndex > 0) {
-      SA.imageIndex--;
+    if (SAPP.imageIndex > 0) {
+      SAPP.imageIndex--;
     } else {
-      SA.imageIndex = WEBPAGEIMAGESMODULE.getNumberOfImages() - 1;
+      SAPP.imageIndex = WEBPAGEIMAGESMODULE.getNumberOfImages() - 1;
     }
 
-    SA.showImage("-500px");
+    SAPP.showImage("-500px");
   }, //--end showPreviousImage
 
+  // function to show the next image
   showNextImage: function() {
 
-    var SA = SLIDESHOWAPP;
+    var SAPP = SLIDESHOWAPP;
 
-    if (SA.imageIndex < (WEBPAGEIMAGESMODULE.getNumberOfImages() - 1)) {
-      SA.imageIndex++;
+    if (SAPP.imageIndex < (WEBPAGEIMAGESMODULE.getNumberOfImages() - 1)) {
+      SAPP.imageIndex++;
     } else {
-      SA.imageIndex = 0;
+      SAPP.imageIndex = 0;
     }
 
-    SA.showImage("500px");
+    SAPP.showImage("500px");
   }, //--end showNextImage
 
+  // function for show the images
   showImage: function(startPosition) {
 
-      var index = SLIDESHOWAPP.imageIndex;
-      var filsti = SLIDESHOWAPP.filstiBilder;
+    var index = SLIDESHOWAPP.imageIndex;
+    var filsti = SLIDESHOWAPP.filstiBilder;
 
-      var bildeSrc = WEBPAGEIMAGESMODULE.getImageSrc(index);
+    var bildeSrc = WEBPAGEIMAGESMODULE.getImageSrc(index);
+    // styling an gets the image
+    var $newImage = $("<img>")
+      .attr("src", filsti + bildeSrc)
+      .css({
+        "left": startPosition,
+        "opacity": "0"
+      })
+      .animate({
+        "left": "0px",
+        "opacity": "1"
+      }, 750, function() {
+        $(this).prevAll("img").remove();
+      });
+    // appends the image in slideshow
+    SLIDESHOWAPP.$slideshow.append($newImage);
 
-      var $newImage = $("<img>")
-        .attr("src", filsti + bildeSrc)
-        .css({
-          "left": startPosition,
-          "opacity": "0"
-        })
-        .animate({
-          "left": "0px",
-          "opacity": "1"
-        }, 750, function() {
-          $(this).prevAll("img").remove();
-        });
+    SLIDESHOWAPP.$infoPopup.html("");
+  }, //--end showImage
 
-
-
-      SLIDESHOWAPP.$slideshow.append($newImage);
-
-      SLIDESHOWAPP.$infoPopup.html("");
-
-
-
-    }, //--end showImage
-
-    showImageInfo: function() {
+  // function to show the info about the image  from the JSON list
+  showImageInfo: function() {
     var index = SLIDESHOWAPP.imageIndex;
     var bildeInfo = WEBPAGEIMAGESMODULE.getImageInfo(index);
-
+    // animate the text in the popup box
     var $imageInfo = $('<p id="popupText">').html(bildeInfo)
-    .css({
-      "opacity": "0"
-    })
-    .animate({
-      "opacity": "1"
-    }, 100);
+      .css({
+        "opacity": "0"
+      })
+      .animate({
+        "opacity": "1"
+      }, 100);
     SLIDESHOWAPP.$infoPopup.html($imageInfo);
-
   }
-
-
 }; //--end SLIDESHOWAPP
 
-//document.ready trigger vår SLIDESHOWAPP når DOM er klart
+//runs the function
 $(function() {
   SLIDESHOWAPP.init();
 });

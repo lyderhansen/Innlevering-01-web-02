@@ -1,47 +1,26 @@
-body{
+/* Jørn Lyder hansen Innlevering 01 Oppgave 03 */
+body {
   margin: 0px;
-}
-img {
-  max-width: 100%;
+
 }
 #container {
   max-width: 1000px;
   display: block;
   margin-right: auto;
   margin-left: auto;
-  height: 1600px;
   font-family: sans-serif;
   background-color: rgb(249, 249, 249);
 }
-#headTxt{
+#searchSection {
+  margin: 0px;
+}
+#headTxt {
   margin: 0px 0px 10px 0px;
   padding: 30px 0px 0px 40px;
   height: 50px;
   font-size: 40px;
   color: rgb(24, 28, 26);
   background-color: rgb(87, 205, 226);
-
-}
-#searchSection{
-
-  margin: 0px;
-}
-
-.landListeOutput {
-  float: left;
-  max-width: 50%;
-  display: block;
-  text-align: left;
-  font-weight: bold;
-  margin: 0px;
-}
-.landListeOutput img {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.landListeOutput p {
-  margin: 0px;
-  margin-bottom: 5px;
 }
 .btn {
   background: #3498db;
@@ -62,8 +41,32 @@ img {
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
 }
-@media (max-width: 1040px) {
+.landListeOutput img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.landListeOutput {
+  float: left;
+  max-width: 50%;
+  display: block;
+  text-align: left;
+  font-weight: bold;
+  margin: 0px;
+}
+.landListeOutput p {
+  margin: 0px;
+  margin-bottom: 20px;
+}
+img {
+  max-width: 100%;
+}
+@media (max-width: 800px) {
   .landListeOutput {
     max-width: 100%;
+  }
+  #container{
+    margin-left: auto;
+    margin-right: auto;
+
   }
 }

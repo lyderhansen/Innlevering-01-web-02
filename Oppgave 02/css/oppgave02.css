@@ -1,3 +1,4 @@
+/* Jørn Lyder hansen Innlevering 01 Oppgave 02 */
 body {
   margin: 0;
   background-color: rgb(236, 236, 236);
@@ -8,11 +9,12 @@ body {
   margin-right: auto;
   font-family: sans-serif;
   border: 1px solid;
+  border-radius: 4px;
   height: 560px;
   box-shadow: 20px 10px 30px #626262;
 }
 #header {
-  margin: 0px;
+  margin: 10px 0px 10px 0px;
   text-align: center;
 }
 #slideshowContainer {
@@ -20,9 +22,9 @@ body {
   height: 300px;
   margin: auto;
   position: relative;
+
 }
 #slideshow {
-  position: relative;
   width: 500px;
   height: 300px;
 }
@@ -38,7 +40,7 @@ body {
 #nesteBildeBtn {
   top: 130px;
   right: -25px;
-  -webkit-filter: drop-shadow(2px 2px 20px black);
+  -webkit-filter: drop-shadow(2px 2px 10px black);
 }
 #slideshow img {
   height: 300px;
